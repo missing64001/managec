@@ -1,0 +1,271 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="9200019"android:versionName="9.2.0.19" package="com.android.deskclock" platformBuildVersionCode="28" platformBuildVersionName="9">
+
+<uses-sdk android:minSdkVersion="19" android:targetSdkVersion="26"/>
+
+<original-package android:name="com.android.alarmclock"/>
+
+<original-package android:name="com.android.deskclock"/>
+
+<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+
+<uses-permission android:name="android.permission.WAKE_LOCK"/>
+
+<uses-permission android:name="android.permission.VIBRATE"/>
+
+<uses-permission android:name="android.permission.WRITE_SETTINGS"/>
+
+<uses-permission android:name="android.permission.DISABLE_KEYGUARD"/>
+
+<uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+
+<uses-permission android:name="android.permission.DEVICE_POWER"/>
+
+<uses-permission android:name="android.permission.WRITE_SECURE_SETTINGS"/>
+
+<uses-permission android:name="android.permission.STATUS_BAR"/>
+
+<uses-permission android:name="android.permission.UPDATE_DEVICE_STATS"/>
+
+<uses-permission android:name="android.miui.permission.SHELL"/>
+
+<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+
+<uses-permission android:name="android.permission.INTERNET"/>
+
+<uses-permission android:name="android.permission.ACCESS_CACHE_FILESYSTEM"/>
+
+<uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
+
+<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+
+<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+
+<uses-permission android:name="android.permission.READ_CALENDAR"/>
+
+<uses-permission android:name="com.miui.permission.MANAGE_BOOT_TIME"/>
+
+<uses-permission android:name="miui.permission.BLE_IMMEDIATE_ALERT"/>
+
+<uses-permission android:name="android.permission.READ_PROFILE"/>
+
+<uses-permission android:name="android.permission.INTERACT_ACROSS_USERS"/>
+
+<uses-permission android:name="miui.permission.USE_INTERNAL_GENERAL_API"/>
+
+<uses-permission android:name="android.permission.MANAGE_USERS"/>
+
+<uses-permission android:name="android.permission.INTERACT_ACROSS_USERS_FULL"/>
+
+<uses-permission android:name="android.permission.ACCESS_THEME"/>
+
+<permission android:name="miui.permission.ACCESS_ALARM_PROVIDER" android:protectionLevel="0x00000003"/>
+
+<application android:label="@7F0A0019" android:icon="@7F030000" android:name="com.android.deskclock.DeskClockApp"android:backupAgent="com.android.deskclock.backup.DeskClockBackupAgent" android:uiOptions="0x00000001"android:supportsRtl="true" android:resizeableActivity="false" android:directBootAware="true">
+
+<uses-library android:name="android-support-v13.jar"/>
+
+<uses-library android:name="gson.jar"/>
+
+<meta-data android:name="android.max_aspect" android:value="2.2"/>
+
+<meta-data android:name="com.android.deskclock.voiceclock" android:value="true"/>
+
+<provider android:name="com.android.deskclock.AlarmProvider" android:permission="miui.permission.ACCESS_ALARM_PROVIDER"android:exported="true" android:authorities="com.android.deskclock"/>
+
+<provider android:name="com.android.deskclock.lifepost.provider.LifePostProvider" android:exported="false"android:authorities="com.android.deskclock.lifepost"/>
+
+<activity android:theme="@7F0F0016" android:label="@7F0A0019" android:name="com.android.deskclock.DeskClockTabActivity"android:launchMode="2" android:screenOrientation="1" android:hardwareAccelerated="@7F0C0001">
+
+<intent-filter>
+
+<action android:name="android.intent.action.MAIN"/>
+
+<category android:name="android.intent.category.DEFAULT"/>
+
+<category android:name="android.intent.category.LAUNCHER"/>
+
+</intent-filter>
+
+<intent-filter>
+
+<action android:name="android.intent.action.VIEW"/>
+
+<category android:name="android.intent.category.DEFAULT"/>
+
+<data android:scheme="deskclock" android:host="deskclock.android.com" android:path="/main"/>
+
+</intent-filter>
+
+<intent-filter>
+
+<action android:name="mi.quicksearch.intent.action.RETRIEVE"/>
+
+<category android:name="android.intent.category.DEFAULT"/>
+
+</intent-filter>
+
+<meta-data android:name="mi.quicksearch.hints" android:resource="@7F060003"/>
+
+</activity>
+
+<activity android:theme="@7F0F003E" android:name="com.android.deskclock.activity.TimezoneSearchActivity"android:screenOrientation="1" android:configChanges="0x000004A0" android:windowSoftInputMode="0x00000034"/>
+
+<activity-alias android:name="com.android.deskclock.AlarmClock" android:exported="true"android:targetActivity="com.android.deskclock.DeskClockTabActivity"/>
+
+<activity-alias android:name="com.android.alarmclock.AlarmClock" android:exported="true"android:targetActivity="com.android.deskclock.DeskClockTabActivity"/>
+
+<activity android:theme="@7F0F0030" android:name="com.android.deskclock.activity.SettingsActivity"android:taskAffinity="" android:excludeFromRecents="true" android:screenOrientation="1">
+
+<intent-filter>
+
+<action android:name="android.intent.action.MAIN"/>
+
+</intent-filter>
+
+</activity>
+
+<activity android:theme="@7F0F002F" android:label="@7F0A008E"android:name="com.android.deskclock.activity.SetAlarmActivity" android:screenOrientation="1"android:configChanges="0x000004A0" android:windowSoftInputMode="0x00000020">
+
+<intent-filter>
+
+<action android:name="android.intent.action.VIEW"/>
+
+<category android:name="android.intent.category.DEFAULT"/>
+
+<data android:scheme="deskclock" android:host="deskclock.android.com" android:path="/setalarm"/>
+
+</intent-filter>
+
+</activity>
+
+<activity android:theme="@7F0F0001" android:name="com.android.deskclock.activity.AlarmAlertFullScreenActivity"android:taskAffinity="" android:excludeFromRecents="true" android:launchMode="3" android:screenOrientation="1"android:configChanges="0x000004A0" android:resizeableActivity="false"/>
+
+<activity android:theme="@7F0F0001" android:name="com.android.deskclock.activity.AlarmAlertSnapshotActivity"android:exported="true" android:screenOrientation="1" android:resizeableActivity="false"/>
+
+<activity android:theme="@7F0F001D" android:label="@7F0A0055"android:name="com.android.deskclock.lifepost.acticity.LifePostSettingActivity" android:screenOrientation="1"/>
+
+<receiver android:name="com.android.deskclock.receiver.AlarmReceiver" android:exported="false">
+
+<intent-filter>
+
+<action android:name="com.android.deskclock.ALARM_ALERT"/>
+
+<action android:name="com.android.deskclock.ALARM_ARRIVING"/>
+
+<action android:name="alarm_killed"/>
+
+<action android:name="cancel_snooze"/>
+
+<action android:name="action.timer_dismiss"/>
+
+<action android:name="action.alarm_dismiss"/>
+
+<action android:name="action.timer_click"/>
+
+</intent-filter>
+
+</receiver>
+
+<activity android:theme="@100D0048" android:name="com.android.deskclock.activity.HandleSetAlarmActivity"android:permission="com.android.alarm.permission.SET_ALARM" android:excludeFromRecents="true"android:screenOrientation="1">
+
+<intent-filter>
+
+<action android:name="miui.intent.action.DISMISS_TIMER"/>
+
+<action android:name="android.intent.action.SET_ALARM"/>
+
+<action android:name="android.intent.action.SHOW_ALARMS"/>
+
+<action android:name="android.intent.action.SET_TIMER"/>
+
+<action android:name="android.intent.action.SHOW_TIMERS"/>
+
+<category android:name="android.intent.category.DEFAULT"/>
+
+<category android:name="android.intent.category.VOICE"/>
+
+</intent-filter>
+
+</activity>
+
+<service android:name="com.android.deskclock.AlarmKlaxon" android:exported="false" android:description="@7F0A000A">
+
+<intent-filter>
+
+<action android:name="com.android.deskclock.ALARM_ALERT"/>
+
+</intent-filter>
+
+</service>
+
+<receiver android:name="com.android.deskclock.receiver.AlarmInitReceiver">
+
+<intent-filter android:priority="@7F0E0002">
+
+<action android:name="android.intent.action.BOOT_COMPLETED"/>
+
+<action android:name="android.intent.action.TIME_SET"/>
+
+<action android:name="android.intent.action.TIMEZONE_CHANGED"/>
+
+<action android:name="android.intent.action.ACTION_SHUTDOWN"/>
+
+<action android:name="miui.intent.action.ALARM_CHANGED"/>
+
+<action android:name="android.intent.action.LOCKED_BOOT_COMPLETED"/>
+
+</intent-filter>
+
+</receiver>
+
+<receiver android:label="@7F0A0018" android:icon="@7F030001"android:name="com.android.alarmclock.AnalogAppWidgetProvider">
+
+<intent-filter>
+
+<action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+
+</intent-filter>
+
+<meta-data android:name="android.appwidget.oldName" android:value="com.android.deskclock.AnalogAppWidgetProvider"/>
+
+<meta-data android:name="android.appwidget.provider" android:resource="@7F060001"/>
+
+</receiver>
+
+<service android:name="com.android.deskclock.backup.ClockBackupService"android:permission="com.xiaomi.permission.CLOUD_MANAGER" android:exported="true">
+
+<intent-filter>
+
+<action android:name="miui.action.CLOUD_BACKUP_SETTINGS"/>
+
+<action android:name="miui.action.CLOUD_RESTORE_SETTINGS"/>
+
+</intent-filter>
+
+</service>
+
+<service android:name="com.android.deskclock.KeepLiveService"/>
+
+<service android:name="com.android.deskclock.TimerService"/>
+
+<provider android:name="android.support.v4.content.FileProvider" android:exported="false"android:authorities="com.android.deskclock.fileprovider" android:grantUriPermissions="true">
+
+<meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@7F060002"/>
+
+</provider>
+
+<service android:name="com.android.deskclock.service.ModuleManagerService"/>
+
+<receiver android:name="com.miui.voiceassist.mvs.client.MvsClientReceiver"android:permission="com.miui.voiceassist.MVS_BROADCAST" android:exported="true">
+
+<intent-filter>
+
+<action android:name="com.miui.voiceassist.mvs.client.ACTION_RESGISTER_MVS"/>
+
+</intent-filter>
+
+</receiver>
+
+</application>
+
+</manifest>

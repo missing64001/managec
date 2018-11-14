@@ -1,0 +1,32 @@
+
+
+{% load admin_static %}
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/index.css' %}" media="all"/>
+    <script type="text/javascript" src="{% static 'js/index.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/jquery-1.11.3.js' %}"></script>
+    
+</head>
+<body>
+    <div>
+
+    <input class="start" type="button" name="" value="开始" onclick="start()"> 
+    <span class="start"
+        {% if timer_id %}
+        starttime="{{starttime}}" timer_id="{{timer_id}}"
+        {% endif %}
+    >00:00:00</span>
+    <audio id="bgMusic" src="{% static 'js/alarm.mp3' %}" preload loop="loop"></audio>
+    </div>
+    <a href="deskclock://deskclock.android.com/main">启动应用程序</a> 
+    <a href="deskclock://deskclock.android.com/setalarm">启动应用程序</a> 
+    <a href="deskclock://deskclock.android.com/set_timer">启动应用程序</a> 
+    <a href="deskclock://deskclock.android.com/settimer">启动应用程序</a> 
+
+
+</body>
+</html>
