@@ -44,6 +44,7 @@ function start() {
         timer=setInterval(starttime,500)
 
         myajax({'id':-1})
+        window.location.href = "https://itunes.apple.com/cn/app/id1049758801";
     }
     else{
         input.val('开始')

@@ -49,7 +49,7 @@ def Index(request):
     da3 = []
     for row in rows:
         da1.append(row[0])
-        da2.append(24 if float(row[1]/3600) > 24 else float(row[1]/3600))
+        da2.append(24 if float(row[1]/3600) > 24 else float(round(row[1]/3600,3)))
         da3.append(2)
     data.update({'date':json.dumps(da1),
         'data1':json.dumps(da2),
