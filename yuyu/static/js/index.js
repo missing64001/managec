@@ -51,9 +51,9 @@ function start() {
         window.clearInterval(timer);
         span.text('00:00:00')
         var audio = document.getElementById("bgMusic")
-        audio.pause()
-
         myajax({'id':span.attr('timer_id')})
+
+        audio.pause()
     }
 }
 
